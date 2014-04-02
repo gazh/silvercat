@@ -1,0 +1,605 @@
+/*
+ *General CSS
+ *
+ *by Gabrijel Skrenkoviæ
+ *
+ * v1.0
+ *
+ */
+
+
+
+/***** Fonts *****/
+
+/*High Tower Regular*/
+@font-face {
+    font-family: 'high_tower_textregular';
+    src: url('../fonts/high-tower-text-webfont.eot');
+    src: url('../fonts/high-tower-text-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/high-tower-text-webfont.woff') format('woff'),
+         url('../fonts/high-tower-text-webfont.ttf') format('truetype'),
+         url('../fonts/high-tower-text-webfont.svg#high_tower_textregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    @font-face {
+        font-family: 'high_tower_textregular';
+        src: url('../fonts/high-tower-text-webfont.svg#high_tower_textregular') format('svg');
+    }
+}
+
+/*Roboto Regular*/
+@font-face {
+    font-family: 'robotoregular';
+    src: url('../fonts/roboto-regular-webfont.eot');
+    src: url('../fonts/roboto-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/roboto-regular-webfont.woff') format('woff'),
+         url('../fonts/roboto-regular-webfont.ttf') format('truetype'),
+         url('../fonts/roboto-regular-webfont.svg#robotoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    @font-face {
+        font-family: 'robotoregular';
+        src: url('../fonts/roboto-regular-webfont.svg#robotoregular') format('svg');
+    }
+}
+
+/*Roboto Bold*/
+@font-face {
+    font-family: 'robotobold';
+    src: url('../fonts/roboto-bold-webfont.eot');
+    src: url('../fonts/roboto-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/roboto-bold-webfont.woff') format('woff'),
+         url('../fonts/roboto-bold-webfont.ttf') format('truetype'),
+         url('../fonts/roboto-bold-webfont.svg#robotobold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    @font-face {
+        font-family: 'robotobold';
+        src: url('../fonts/roboto-bold-webfont.svg#robotobold') format('svg');
+    }
+}
+
+
+/***** GENERAL *****/
+
+body{
+    color: #858585;
+    font-family: 'high_tower_textregular', serif;
+    text-align: center;
+}
+h1{
+    margin: 0 0 100px 0;
+    font-size: 54px;
+}
+h2{
+    margin: 0 0 150px 0;
+    border-bottom: 2px solid #fff;
+    font-size: 60px;
+}
+h3{
+    margin: 0 0 20px 0;
+    font-size: 60px;
+}
+h4{
+    font-size: 34px;
+    margin: 0 0 60px;
+    color: #6d6868;
+}
+p{
+    font-size: 24px;
+}
+input, textarea{
+    padding: 0 20px;
+    border: none;
+    background-color: #b9b9b9;
+    font-family: 'high_tower_textregular', serif;
+    font-size: 24px;
+    color: #282828;
+}
+input{
+    width: 380px;
+    height: 52px;
+    margin: 0 0 20px 0;
+}
+textarea{
+    width: 560px;
+    height: 290px;
+    margin: 0 0 20px 0;
+    padding: 20px;
+    resize: none;
+}
+
+/* Used to generate line on sides of h2 */
+h2 span{
+    position: relative;
+    top: 35px;
+    padding: 0 20px;
+}
+h1,h2{
+    text-transform: uppercase;
+    color: #fff;
+}
+h1 span{
+    font-size: 48px;
+}
+
+.holder{
+    width: 1374px;
+    margin: 0 auto;
+}
+.holder-inner{
+    width: 1014px;
+    margin: 0 auto;
+}
+.jump{
+    position: relative;
+}
+.jump a{
+    position: absolute;
+    top: -100px;
+}
+
+
+
+/***** HEADER *****/
+
+#header{
+    position: fixed;
+    top: 0px;
+    z-index: 2;
+    width: 100%;
+    height: 84px;
+    padding: 12px 0 6px 0;
+    background-color: #f0f0f0;
+    -webkit-box-shadow: 0 10px 10px rgba(0,0,0,0.4);
+       -moz-box-shadow: 0 10px 10px rgba(0,0,0,0.4);
+	    box-shadow: 0 10px 10px rgba(0,0,0,0.4);
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #686868;
+}
+#header .holder{
+    width: 1286px;
+}
+#logo{
+    float: left;
+}
+#navigation{
+    float: right;
+    margin: 30px 0 0 0;
+}
+#navigation li{
+    float: right;
+    margin: 0 0 0 80px;
+}
+#navigation a:hover{
+    text-decoration: underline;
+}
+
+
+
+/***** TITLE *****/
+
+#title{
+    margin: 100px 0 0 0;
+    padding: 100px 0 0 0;
+    background-color: #2daac8;
+    -webkit-box-shadow: inset 0 -10px 10px rgba(0,0,0,0.4);
+       -moz-box-shadow: inset 0 -10px 10px rgba(0,0,0,0.4);
+	    box-shadow: inset 0 -10px 10px rgba(0,0,0,0.4);
+}
+#title p{
+    margin: 0 0 90px 0;
+    line-height: 36px;
+    color: #f0f0f0;
+}
+.block{
+    width: 346px;
+    height: 286px;
+    padding: 60px 0 0 0;
+    margin: 0 0 100px 0;
+    background-color: #d6d6d6;
+    -moz-border-radius: 173px;
+    border-radius: 173px;
+}
+#block-diode{
+    float: left;
+    margin: 0 170px 0 0;
+}
+#block-motor{
+    float: left;
+}
+#block-heater{
+    float: right;
+}
+
+
+
+/***** APLICATION *****/
+
+#application{
+    padding: 65px 0 100px 0;
+    background-color: #f07878;
+}
+#application h2 span{
+    background-color: #f07878;
+}
+.phone{
+    float: left;
+}
+.phone-app{
+    position: relative;
+    float: left;
+    width: 351px;
+    height: 701px;
+    background-image: url("../images/phone.png");
+    font-family: 'robotoregular', Helvetica, sans-serif;
+    font-size: 14px;
+    color: #282828;
+}
+.time{
+    position: absolute;
+    top: 70px;
+    left: 302px;
+    width: 35px;
+    height: 16px;
+    font-size: 14px;
+    color: #3999bc;
+}
+.input-type{
+    position: absolute;
+    top: 100px;
+    left: 60px;
+    width: 50px;
+    height: 17px;
+    padding: 3px 0 0 0;
+    font-size: 16px;
+    color: #fff;
+}
+.phone-header{
+    position: absolute;
+    top: 197px;
+    left: 21px;
+    width: 305px;
+    height: 25px;
+    padding: 11px 0 0 0;
+    background-color: #91b5da;
+    border: 2px solid #74a3d0;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-family: 'robotobold', Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #fff;
+}
+.tabs{
+    position: absolute;
+    top: 131px;
+    left: 12px;
+    width: 327px;
+    height: 39px;
+}
+.tabs div{
+    width: 163px;
+    height: 39px;
+    cursor: pointer;
+}
+.diode-digital .tabs{
+    background-image: url("../images/tabs-outputs.png");
+}
+.diode-analog .tabs{
+    background-image: url("../images/tabs-pwm.png");
+}
+#application-motor .tabs{
+    background-image: url("../images/tabs-motor.png");
+}
+#application-heater .tabs{
+    background-image: url("../images/tabs-heater.png");
+}
+.tab-outputs, .tab-motor{
+    float: left;
+}
+.tab-pwm, .tab-heater{
+    float: right;
+}
+.circuit{
+    position: relative;
+    float: right;
+}
+
+/**** diodes ****/
+.diodes{
+    position: absolute;
+    left: 698px;
+    width: 29px;
+    height: 44px;
+    background-image: url("../images/diode-shadow.png");
+}
+.diode-on{
+    background-image: none;
+}
+#diode1{
+    top: 52px;
+}
+#diode2{
+    top: 142px;
+}
+#diode3{
+    top: 286px;
+}
+#diode4{
+    top: 377px;
+}
+.phone-row{
+    position: absolute;
+    left: 40px;
+    /*border: 1px solid black;*/
+    width: 270px;
+}
+.phone-row div{
+    float: right;
+}
+.phone-row span{
+    float: left;
+}
+.phone-row .text, .phone-row span{
+    padding: 7px 0 0 0;
+}
+.switch{
+    width: 92px;
+    height: 23px;
+    cursor: pointer;
+    background-image: url("../images/switch-off.png");
+}
+.switch-on{
+    background-image: url("../images/switch-on.png");
+}
+#row-switch1{
+    top: 312px;
+}
+#row-switch2, #switch-motor, #switch-heater{
+    top: 356px;
+}
+#row-switch3{
+    top: 400px;
+}
+#light-axis{
+    position: relative;
+    top: 356px;
+    height: 26px;
+}
+#light-axis-holder{
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 245px;
+    height: 3px;
+    background-color: #28b1e4;
+}
+#light-drager{
+    position: absolute;
+    float: none;
+    width: 26px;
+    height: 26px;
+    background-image: url("../images/drager.png");
+    cursor: pointer;
+}
+
+/**** motor ****/
+#motor, #heater-motor{
+    position: absolute;
+    top: 64px;
+    left: 163px;
+    width: 138px;
+    height: 99px;
+}
+.motor-off{
+    background-image: url("../images/motor-off.png")
+}
+.motor-on{
+    background-image: url("../images/motor-on.png")
+}
+
+/**** heater ****/
+#temperature, #light{
+    top: 435px;
+}
+#heater{
+    position: absolute;
+    top: 0px;
+    left: 587px;
+    width: 94px;
+    height: 234px;
+    opacity: 0;
+    filter:alpha(opacity=0);
+}
+#heater-motor{
+    position: absolute;
+    top: 25px;
+    left: 304px;
+    width: 138px;
+    height: 99px;
+}
+.heater-cold{
+    background-image: url("../images/heater-cold.png");
+}
+.heater-warm{
+    background-image: url("../images/heater-warm.png");
+}
+.heater-hot{
+    background-image: url("../images/heater-hot.png");
+}
+
+
+/***** PRODUCTS *****/
+
+#products{
+    padding: 65px 0 0 0;
+    background-color: #f0f0f0;
+}
+#products .holder{
+
+}
+#products h2{
+    color: #858585;
+    border-bottom: 2px solid #858585;
+}
+#products h2 span{
+    background-color: #f0f0f0;
+}
+.product{
+    margin: 0 0 160px 0;
+}
+.info-box{
+    float: right;
+}
+.info-box p{
+    line-height: 38px;
+}
+.info-box a{
+    color: #00f;
+}
+a.buy-now{
+    display: block;
+    width: 300px;
+    height: 40px;
+    margin: 0 0 50px 0;
+    padding: 12px 0 0 0;
+    background-color: #f07878;
+    font-size: 30px;
+    color: #fff;
+}
+.triangle-nav{
+    width: 180px;
+    margin: 0 auto;
+}
+.info-message{
+    padding: 0 0 160px 0;
+    font-size: 30px;
+}
+.info-message a{
+    color: #00f;
+}
+
+
+
+/***** TEAM *****/
+
+#team{
+    padding: 65px 0 0 0;
+    background-color: #e0e0e0;
+    -webkit-box-shadow: inset 0 -15px 15px rgba(0,0,0,0.4);
+       -moz-box-shadow: inset 0 -15px 15px rgba(0,0,0,0.4);
+	    box-shadow: inset 0 -15px 15px rgba(0,0,0,0.4);
+}
+#team h2{
+    border-bottom: 2px solid #858585;
+    color: #858585;
+}
+#team h2 span{
+    background-color: #e0e0e0;
+}
+.member{
+    width: 346px;
+    margin: 0 0 100px 0;
+}
+#member-first{
+    float: left;
+    margin: 0 75px 0 0;
+}
+#member-second{
+    float: left;
+    width: 480px;
+}
+#member-second .member-info{
+    width: 346px;
+    padding: 50px 80px 0;
+    border-left: 3px solid #b9b9b9;
+    border-right: 3px solid #b9b9b9;
+}
+#member-third{
+    float: right;
+}
+.member-picture{
+    margin: 0 0 50px 0;
+}
+.member-info{
+    padding: 50px 0 0 0;
+}
+.member-info p{
+    line-height: 34px;
+}
+
+
+
+/***** CONTACT *****/
+
+#contact{
+    padding: 65px 0 100px 0;
+    background-color: #353b47;
+}
+#contact h2 span{
+    background-color: #353b47;
+}
+#contact .holder-inner{
+    width: 1000px;
+    margin: 0 auto;
+}
+.left-side{
+    float: left;
+    width: 420px;
+}
+.right-side{
+    float: right;
+    width: 550px;
+}
+::-webkit-input-placeholder {
+   color: #686868;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #686868;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #686868;  
+}
+
+:-ms-input-placeholder {  
+   color: #686868;  
+}
+#subject{
+    width: 380px;
+    height: 146px;
+}
+#submit{
+    float: left;
+    width: 100px;
+    height: 50px;
+    padding: 10px;
+    background-color: #f07878;
+    color: #fff;
+}
+
+
+
+/***** FOOTER *****/
+
+#footer{
+    padding: 0 0 100px 0;
+    background-color: #353b47;
+}
+#footer img{
+    height: 80px;
+    width: 100px;
+}
