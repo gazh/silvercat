@@ -344,7 +344,7 @@ h1 span{
     position: absolute;
     left: 40px;
     /*border: 1px solid black;*/
-    width: 270px;
+    width: 276px;
 }
 .phone-row div{
     float: right;
@@ -382,7 +382,7 @@ h1 span{
     position: absolute;
     top: 12px;
     left: 12px;
-    width: 245px;
+    width: 250px;
     height: 3px;
     background-color: #28b1e4;
 }

@@ -112,7 +112,6 @@ $(document).ready(function(){
 	function changeTemperature(current_temperature){
 		full_temperature = current_temperature+"°C";
 		$(".js-temperature").text(full_temperature);
-		console.log(full_temperature);
 	}
 		
 	$(".temperature span").text(full_temperature);
@@ -171,7 +170,6 @@ $(document).ready(function(){
 		h=checkTime(h);
 		m=checkTime(m);
 		$(".time").text(h+":"+m);
-		console.log(h+":"+m);
 		t=setTimeout(function(){startTime()},2000);
 		}
 		
@@ -197,7 +195,23 @@ $(document).ready(function(){
 /*Analog diode*/
 $(document).ready(function(){
 	
-	var analog_min;
-	var analog_max;
+	var max_light=250
+	var current_light=0;
+	var current_opacity=0;
+	
+	$("#light-drager").draggable({
+		drag: function(){
+			current_light=parseInt($("#light-drager").css("left"));
+			$(".js-light").text(current_light);
+			
+			current_opacity=current_light/max_light;
+			
+			//inverted current opacity is used because function makes dioed shadow more and more invisible
+			var inverted_current_opacity=1-current_opacity;
+			
+			$("#diode4").animate({ opacity: inverted_current_opacity },0.1);
+		}
+	});
+
 	
 });

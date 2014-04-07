@@ -19,7 +19,7 @@
         <div class="holder">
         
             <div id="logo">
-                <a href="#to-top" class="js-jump"><img src="images/logo.png" alt="logo" /></a>
+                <a href="#to-top" class="js-jump"><img src="images/logo.png" width="76" height="76" "alt="logo" /></a>
             </div>
             
             <ul id="navigation">
