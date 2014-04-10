@@ -1,3 +1,112 @@
+<?php
+    
+    //Email form submited
+    if(isset($_POST["submit"])){
+        
+        $can_send=true;
+        $post_message="";
+        
+        $name=trim($_POST["name"]);
+        $email=trim($_POST["email"]);
+        $subject=trim($_POST["subject"]);
+        $message=trim($_POST["message"]);
+        
+        
+        //Check if fields are set
+        if(empty($name)||empty($email)||empty($subject)||empty($message)){
+            
+            $post_message="Please fill all the fields";
+            //echo array("post_message"=>$post_message);
+            $can_send=false;
+            
+        }
+        
+        
+        //Check lengths of fields
+        $short_length=40;
+        $long_length=480;
+        
+        $short_fields=array($name, $email, $subject);
+        $long_fields=array($message);
+        
+        
+        foreach($short_fields as $sf){
+            if(strlen($sf) > $short_length){
+                if($post_message==""){
+                    $post_message="Name, Email and Subject fields must be 40 or less characters";
+                }
+                $can_send=false;
+                break;
+            }
+        }
+        
+        foreach($long_fields as $lf){
+            if(strlen($lf) > $long_length){
+                if($post_message==""){
+                    $post_message="Message text must be 480 or less characters";
+                }
+                $can_send=false;
+                break;
+            }
+        }
+        
+        
+        //Check email format
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            
+            if($post_message==""){    
+                $post_message="Please enter valid email.";
+            }
+            $can_send=false;
+                
+        }
+        
+        
+        //Prepare to send email if there is no invalid inputs
+        if($can_send){
+            
+            $to="pankrtomislav@gmail.com, gazhos@gmail.com";
+            $email_subject="Silvercat Web: ".$subject;
+            
+            $email_text="
+            <html>
+            <head>
+               <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />
+               <title>Silvercat Web user message</title>
+            </head>
+            <body>
+               <p>{$message}</p>
+            </body>
+            </html>";
+            
+            $headers=array();
+            $headers[]="MIME-Version: 1.0";
+            $headers[]="Content-type: text/html; charset=iso-8859-1";
+            $headers[]="From: {$name} <{$email}>";
+            
+            $headers=implode("\r\n", $headers);
+            
+            
+            //Sends email
+            if(mail($to, $email_subject, $email_text, $headers)){
+                
+                $post_message="Email sent, thank you for your question/opinion.";
+                
+                $name="";
+                $email="";
+                $subject="";
+                $message="";
+                
+            }else{
+                
+                $post_message="There was an error sending your email, please try again in few minuets.";
+                
+            }
+        }
+        
+    }
+
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -297,22 +406,25 @@
             <h2><span>Contact</span></h2>
             
             <div class="holder-inner">
-                <form action="<?php $_SERVER["PHP_SELF"] ?>">
+                <form id="form" action="<?php $_SERVER["PHP_SELF"]; ?>" method="post">
                 <div class="left-side">
                     
-                    <input type="text" name="text" placeholder="Your Name*" />
-                    <input type="email" name="email" placeholder="Your e-mail address*" />
-                    <textarea type="text" name="subject" id="subject" placeholder="Subject"></textarea>
+                    <input type="text" name="name" id="name" value="<?php if(isset($name)){echo $name;} ?>" placeholder="Your Name*" />
+                    <input type="email" name="email" id="email" value="<?php if(isset($email)){echo $email;} ?>" placeholder="Your e-mail address*" />
+                    <textarea type="text" name="subject" id="subject" placeholder="Subject*"><?php if(isset($subject)){echo $subject;} ?></textarea>
                     
                 </div>
                 
                 <div class="right-side">
-                    <textarea name="message" placeholder="Type your message here ..."></textarea>
+                    <textarea name="message" id="message" placeholder="Type your message here ...*"><?php if(isset($message)){echo $message;} ?></textarea>
                     <input type="submit" id="submit" name="submit" value="SEND!" />
                 </div>
                 
                 <div class="clear"></div>
                 </form>
+                
+                <div class="post-message"><?php if(isset($post_message)){echo $post_message;} ?></div>
+                
             </div>
             
         </div>
@@ -326,14 +438,7 @@
         <a href="facebook.com">
             <img src="images/facebook.png" alt="facebook" />
         </a>
-        <a href="facebook.com">
-            <img src="images/facebook.png" alt="facebook" />
-        </a>
-        <a href="facebook.com">
-            <img src="images/facebook.png" alt="facebook" />
-        </a>
     </div>
-    
     
     
     <!--JS-->

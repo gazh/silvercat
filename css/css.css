@@ -588,7 +588,14 @@ a.buy-now{
     height: 50px;
     padding: 10px;
     background-color: #f07878;
+    cursor: pointer;
     color: #fff;
+}
+.post-message{
+    height: 20px;
+    padding: 10px 0 0 0;
+    font-size: 22px;
+    color: #e5e5e5;
 }
 
 
@@ -600,6 +607,6 @@ a.buy-now{
     background-color: #353b47;
 }
 #footer img{
-    height: 80px;
-    width: 100px;
+    height: 60px;
+    width: 60px;
 }

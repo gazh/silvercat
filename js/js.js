@@ -215,3 +215,31 @@ $(document).ready(function(){
 
 	
 });
+
+/*Form post*/
+/*
+	$( "#form" ).submit(function( event ) {
+ 
+		// Stop form from submitting normally
+		event.preventDefault();
+	       
+		// Get some values from elements on the page:
+		var $form = $( this );
+		var url = $form.attr( "action" );
+		  
+		var name = $("#name").val();
+		var email = $("#email").val();
+		var subject = $("#subject").val();
+		var message = $("#message").val();
+	       
+		// Send the data using post
+		var posting = $.post( url, { name: name, email: email, subject: subject, message: message } );
+	       
+		// Put the results in a div
+		posting.done(function( data ) {
+		  var content = $( data.post_message );
+		  console.log(content);
+		  $( ".post-message" ).empty().text( content );
+		});
+	});
+*/
