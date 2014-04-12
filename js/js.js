@@ -216,7 +216,25 @@ $(document).ready(function(){
 	
 });
 
-/*Form post*/
+/*Fadeout post-message*/
+$(document).ready(function(){
+	
+	$(document).click(function(){
+		
+		var post_message = $("#contact .post-message").text();
+		
+		console.log(post_message);
+		console.log(post_message.length);
+		
+		if (post_message.length > 0) {
+			$("#contact .post-message").fadeTo(2000,0);
+		}
+		
+	});
+	
+});
+
+/*Form ajax post*/
 /*
 	$( "#form" ).submit(function( event ) {
  
