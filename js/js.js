@@ -1,3 +1,13 @@
+/*
+ * Javascript functions
+ *
+ * by Gabrijel Skrenkoviæ
+ *
+ * v1.0
+ *
+ */
+
+
 /* Animate jump */
 $(document).ready(function() {
  
@@ -76,9 +86,9 @@ $(document).ready(function(){
 $(document).ready(function(){
 
 	$(".js-switch-diode").click(function(){
-		var diode_id=$(this).attr("id");
-		var diode_number=diode_id.substring(6,7);
-		var diode_id="#diode"+diode_number;
+		var diode_id=$(this).attr("id"),
+		    diode_number=diode_id.substring(6,7),
+		    diode_id="#diode"+diode_number;
 		
 		$(diode_id).toggleClass("diode-on");
 	});	
@@ -99,15 +109,15 @@ $(document).ready(function(){
 $(document).ready(function(){
 	
 	//set initial direction
-	var direction="off";
-	var temperature_min = 20;
-	var temperature_max = 200;
-	var heating_time=5000;
-	var temperature_changer;
-	
-	var current_temperature=temperature_min;
-	var full_temperature = current_temperature+"°C";
-	var time_interval=heating_time/(temperature_max-temperature_min);
+	var direction="off",
+	    temperature_min = 20,
+	    temperature_max = 200,
+	    heating_time=5000,
+	    temperature_changer,
+	    
+	    current_temperature=temperature_min,
+	    full_temperature = current_temperature+"°C",
+	    time_interval=heating_time/(temperature_max-temperature_min);
 	
 	function changeTemperature(current_temperature){
 		full_temperature = current_temperature+"°C";
@@ -163,9 +173,9 @@ $(document).ready(function(){
 	
 	function startTime()
 		{
-		var today=new Date();
-		var h=today.getHours();
-		var m=today.getMinutes();
+		var today=new Date(),
+		    h=today.getHours(),
+		    m=today.getMinutes();
 		// add a zero in front of numbers<10
 		h=checkTime(h);
 		m=checkTime(m);
@@ -173,12 +183,11 @@ $(document).ready(function(){
 		t=setTimeout(function(){startTime()},2000);
 		}
 		
-		function checkTime(i)
-		{
-		if (i<10)
-		  {
+		function checkTime(i){
+		if (i<10){
 		  i="0" + i;
-		  }
+		}
+		
 		return i;
 	}
 	
@@ -195,9 +204,9 @@ $(document).ready(function(){
 /*Analog diode*/
 $(document).ready(function(){
 	
-	var max_light=250
-	var current_light=0;
-	var current_opacity=0;
+	var max_light=250,
+	    current_light=0,
+	    current_opacity=0;
 	
 	$("#light-drager").draggable({
 		drag: function(){
@@ -219,15 +228,15 @@ $(document).ready(function(){
 /*Fadeout post-message*/
 $(document).ready(function(){
 	
+	var post_message = $("#contact .post-message");
+	
+	//post_message is set to space string so fade in works
+	post_message.text(" ");
+	
 	$(document).click(function(){
 		
-		var post_message = $("#contact .post-message").text();
-		
-		console.log(post_message);
-		console.log(post_message.length);
-		
-		if (post_message.length > 0) {
-			$("#contact .post-message").fadeTo(2000,0);
+		if (post_message.text().length > 0 && post_message.css("opacity") > 0) {
+			$("#contact .post-message").fadeTo(1000,0);
 		}
 		
 	});
@@ -235,29 +244,37 @@ $(document).ready(function(){
 });
 
 /*Form ajax post*/
-/*
-	$( "#form" ).submit(function( event ) {
- 
-		// Stop form from submitting normally
+$(document).ready(function(){
+	
+	$("#form").submit(function(event){
+		
 		event.preventDefault();
-	       
-		// Get some values from elements on the page:
-		var $form = $( this );
-		var url = $form.attr( "action" );
-		  
-		var name = $("#name").val();
-		var email = $("#email").val();
-		var subject = $("#subject").val();
-		var message = $("#message").val();
-	       
-		// Send the data using post
-		var posting = $.post( url, { name: name, email: email, subject: subject, message: message } );
-	       
-		// Put the results in a div
-		posting.done(function( data ) {
-		  var content = $( data.post_message );
-		  console.log(content);
-		  $( ".post-message" ).empty().text( content );
+		
+		//sets variables that are sent
+		var name = $("#name").val(),
+		    email = $("#email").val(),
+		    subject = $("#subject").val(),
+		    message = $("#message").val(),
+		    url = $("#form").attr( "action" );
+		
+		$.ajax({
+			url: url,
+			type: "POST",
+			data: ({
+				name: name,
+				email: email,
+				subject: subject,
+				message: message,
+				
+				//submit is sent for script to check exactly if is submit set
+				submit: ""
+				}),
+			success: function(data){
+				$("#contact .post-message").fadeTo(300,1).text(data);
+			}
+			
 		});
+		
 	});
-*/
+	
+});

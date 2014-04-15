@@ -3,7 +3,7 @@
     //Email form submited
     if(isset($_POST["submit"])){
         
-        $can_send=true;
+        $can_send = true;
         $post_message="";
         
         $name=trim($_POST["name"]);
@@ -16,8 +16,7 @@
         if(empty($name)||empty($email)||empty($subject)||empty($message)){
             
             $post_message="Please fill all the fields";
-            //echo array("post_message"=>$post_message);
-            $can_send=false;
+            $can_send = false;
             
         }
         
@@ -35,7 +34,7 @@
                 if($post_message==""){
                     $post_message="Name, Email and Subject fields must be 40 or less characters";
                 }
-                $can_send=false;
+                $can_send = false;
                 break;
             }
         }
@@ -45,7 +44,7 @@
                 if($post_message==""){
                     $post_message="Message text must be 480 or less characters";
                 }
-                $can_send=false;
+                $can_send = false;
                 break;
             }
         }
@@ -57,7 +56,7 @@
             if($post_message==""){    
                 $post_message="Please enter valid email.";
             }
-            $can_send=false;
+            $can_send = false;
                 
         }
         
@@ -65,7 +64,7 @@
         //Prepare to send email if there is no invalid inputs
         if($can_send){
             
-            $to="pankrtomislav@gmail.com, gazhos@gmail.com";
+            $to="gazhos@gmail.com";
             $email_subject="Silvercat Web: ".$subject;
             
             $email_text="
@@ -92,6 +91,7 @@
                 
                 $post_message="Email sent, thank you for your question/opinion.";
                 
+                //Variables are reset if mail is sent
                 $name="";
                 $email="";
                 $subject="";
@@ -102,6 +102,13 @@
                 $post_message="There was an error sending your email, please try again in few minuets.";
                 
             }
+        }
+        
+        //If post is sent with ajax post_message is echoed so it can be grabed
+        //and script exits so it don't send html again
+        if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+            echo $post_message;
+	exit();
         }
         
     }
@@ -406,11 +413,11 @@
             <h2><span>Contact</span></h2>
             
             <div class="holder-inner">
-                <form id="form" action="<?php $_SERVER["PHP_SELF"]; ?>" method="post">
+                <form id="form" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
                 <div class="left-side">
                     
                     <input type="text" name="name" id="name" value="<?php if(isset($name)){echo $name;} ?>" placeholder="Your Name*" />
-                    <input type="email" name="email" id="email" value="<?php if(isset($email)){echo $email;} ?>" placeholder="Your e-mail address*" />
+                    <input type="text" name="email" id="email" value="<?php if(isset($email)){echo $email;} ?>" placeholder="Your e-mail address*" />
                     <textarea type="text" name="subject" id="subject" placeholder="Subject*"><?php if(isset($subject)){echo $subject;} ?></textarea>
                     
                 </div>
