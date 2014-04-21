@@ -100,15 +100,21 @@
             }else{
                 
                 $post_message="There was an error sending your email, please try again in few minuets.";
+                $can_send=false;
                 
             }
         }
         
+        
         //If post is sent with ajax post_message is echoed so it can be grabed
         //and script exits so it don't send html again
         if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-            echo $post_message;
-	exit();
+            
+            $ajax_info=json_encode(array("post_message" => $post_message, "success" => $can_send));
+            echo $ajax_info;
+            
+            exit();
+        
         }
         
     }
@@ -164,7 +170,7 @@
             
             <h1>Remote control your Arduino<br /><span>with a smartphone</span></h1>
             <p>Turn your devices On and Off at the desired moment using timers in our APP<br />
-            Always know wich device is active or inactive thanx to the Updater service in our APP</p>
+            Always know which device is active or inactive thanks to the Updater service in our APP</p>
             
             <p>Remote control lights, motors, heaters, etc.</p>
             
@@ -424,7 +430,7 @@
                 
                 <div class="right-side">
                     <textarea name="message" id="message" placeholder="Type your message here ...*"><?php if(isset($message)){echo $message;} ?></textarea>
-                    <input type="submit" id="submit" name="submit" value="SEND!" />
+                    <input type="submit" id="submit" name="submit" value="SEND" />
                 </div>
                 
                 <div class="clear"></div>

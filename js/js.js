@@ -233,7 +233,7 @@ $(document).ready(function(){
 	//post_message is set to space string so fade in works
 	post_message.text(" ");
 	
-	$(document).click(function(){
+	$(document).mousedown(function(){
 		
 		if (post_message.text().length > 0 && post_message.css("opacity") > 0) {
 			$("#contact .post-message").fadeTo(1000,0);
@@ -260,6 +260,7 @@ $(document).ready(function(){
 		$.ajax({
 			url: url,
 			type: "POST",
+			dataType: "json",
 			data: ({
 				name: name,
 				email: email,
@@ -270,7 +271,11 @@ $(document).ready(function(){
 				submit: ""
 				}),
 			success: function(data){
-				$("#contact .post-message").fadeTo(300,1).text(data);
+				$("#contact .post-message").fadeTo(300,1).text(data.post_message);
+				
+				if (data.success) {
+					$("#name, #email, #subject, #message").val("");
+				}
 			}
 			
 		});
