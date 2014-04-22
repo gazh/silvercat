@@ -13,7 +13,7 @@ $(document).ready(function() {
  
 	$(".js-jump").click(function(event){		
 		event.preventDefault();
-                $('html,body').animate({scrollTop:$('[name="'+this.hash.substring(1)+'"]').offset().top}, 700);
+                $('html,body').stop().animate({scrollTop:$('[name="'+this.hash.substring(1)+'"]').offset().top}, 700);
 	});
 });
 
@@ -202,6 +202,7 @@ $(document).ready(function(){
 })
 
 /*Analog diode*/
+//Uses jquery-ui.js
 $(document).ready(function(){
 	
 	var max_light=250,
@@ -279,6 +280,31 @@ $(document).ready(function(){
 			}
 			
 		});
+		
+	});
+	
+});
+
+/*Nice Scrollbar*/
+//Uses nicescroll.js
+$(document).ready(function(){
+	
+	$("html").niceScroll();
+	
+});
+
+/*Shrink header when scrolled*/
+$(document).ready(function(){
+	
+	var default_padding = $("#header").css("padding");
+	
+	$(window).scroll(function(){
+		
+		if ($(window).scrollTop() > $("#header").height()) {
+			$("#header").css("padding", 0);
+		}else{
+			$("#header").css("padding", default_padding);
+		}
 		
 	});
 	

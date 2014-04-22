@@ -158,11 +158,11 @@
     </div>
     <!-- END header -->
     
-    
-    
     <div class=jump>
     <a name="to-top"></a>
     </div>
+    
+    
     
     <!-- --- TITLE --- -->
     <div id="title">
@@ -452,11 +452,14 @@
             <img src="images/facebook.png" alt="facebook" />
         </a>
     </div>
+
     
     
     <!--JS-->
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/nicescroll.min.js"></script>
     <script type="text/javascript" src="js/js.js"></script>
+    
 </body>
 </html>
