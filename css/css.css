@@ -72,6 +72,8 @@
 /***** GENERAL *****/
 
 body{
+    min-width: 1374px;
+    background-color: #2daac8;
     color: #858585;
     font-family: 'high_tower_textregular', serif;
     text-align: center;
@@ -145,12 +147,9 @@ h1 span{
 }
 .jump a{
     position: absolute;
-    top: -76px;
 }
-
-/*Used with nicescrol.js*/
-#ascrail2000 div{
-    background: rgba(0, 0, 0, 0.30);
+.jump .to-top{
+    top: -100px;
 }
 
 
@@ -158,10 +157,11 @@ h1 span{
 /***** HEADER *****/
 
 #header{
-    position: fixed;
+    position: absolute;
     top: 0px;
     z-index: 2;
     width: 100%;
+    min-width: 1374px;
     padding: 12px 0;
     background-color: #f0f0f0;
     -webkit-box-shadow: 0 10px 10px rgba(0,0,0,0.4);
@@ -445,6 +445,7 @@ h1 span{
 }
 
 
+
 /***** PRODUCTS *****/
 
 #products{
@@ -477,7 +478,7 @@ a.buy-now{
     display: block;
     width: 300px;
     height: 40px;
-    margin: 0 0 50px 0;
+    margin: 120px 0 0 0;
     padding: 12px 0 0 0;
     background-color: #f07878;
     font-size: 30px;

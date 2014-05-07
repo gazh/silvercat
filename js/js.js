@@ -105,7 +105,6 @@ $(document).ready(function(){
 });
 
 /*Switch on for heater*/
-
 $(document).ready(function(){
 	
 	//set initial direction
@@ -285,12 +284,35 @@ $(document).ready(function(){
 	
 });
 
-/*Nice Scrollbar*/
-//Uses nicescroll.js
-$(document).ready(function(){
+/*Fix header*/
+Function.prototype.debounce = function (threshold, execAsap) {
+ 
+    var func = this, timeout;
+ 
+    return function debounced () {
+        var obj = this, args = arguments;
+        function delayed () {
+            if (!execAsap)
+                func.apply(obj, args);
+            timeout = null; 
+        };
+ 
+        if (timeout)
+            clearTimeout(timeout);
+        else if (execAsap)
+            func.apply(obj, args);
+ 
+        timeout = setTimeout(delayed, threshold || 0); 
+    };
+ 
+}
+
+$(document).ready(function() {
 	
-	$("html").niceScroll();
-	
+	$(window).scroll(function() {
+	    $("#header").stop().animate({"top": $(window).scrollTop() + "px"}, 300); 
+	}.debounce());
+    
 });
 
 /*Shrink header when scrolled*/

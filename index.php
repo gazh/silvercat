@@ -130,7 +130,6 @@
     <!--CSS-->
     <link href="css/reset.css" rel="stylesheet" type="text/css" />
     <link href="css/css.css" rel="stylesheet" type="text/css" />
-    <link href="css/responsive.css" rel="stylesheet" type="text/css" />
     
 </head>
 
@@ -159,7 +158,7 @@
     <!-- END header -->
     
     <div class=jump>
-    <a name="to-top"></a>
+    <a name="to-top" class="to-top"></a>
     </div>
     
     
@@ -342,10 +341,13 @@
                         <br />
                         <a href="#" class="buy-now">Buy now</a>
                         
+                        <!-- Not used because only one product, left markap for later
+                        
                         <div class="triangle-nav">
                             <a href="#" id="triangle-up"><img src="images/triangle-up.png" alt="go up" /></a>
                             <a href="#" id="triangle-down"><img src="images/triangle-down.png" alt="go down" /></a>
                         </div>
+                        -->
                     </div>
                     
                     <div class="clear"></div>
@@ -458,7 +460,6 @@
     <!--JS-->
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/jquery-ui.js"></script>
-    <script type="text/javascript" src="js/nicescroll.min.js"></script>
     <script type="text/javascript" src="js/js.js"></script>
     
 </body>
