@@ -135,6 +135,34 @@
 
 <body>
     
+    
+    <!-- --- IMAGE PRELOADER --- -->
+    <div id="preloader">
+	<script type="text/javascript">
+		<!--//--><![CDATA[//><!--
+			var images = new Array()
+			function preload() {
+				for (i = 0; i < preload.arguments.length; i++) {
+					images[i] = new Image()
+					images[i].src = preload.arguments[i]
+				}
+			}
+			preload(
+				"images/circuit-heater.png",
+				"images/circuit-motor.png",
+				"images/motor-on.png",
+                                "images/motor-off.png",
+                                "images/switch-on.png",
+                                "images/tabs-heater.png",
+                                "images/tabs-motor.png",
+                                "images/tabs-pwm.png",
+                                "images/heater-hot.png"
+			)
+		//--><!]]>
+	</script>
+    </div><!-- END preloader -->
+    
+    
     <!-- --- HEADER --- -->
     <div id="header">
         <div class="holder">

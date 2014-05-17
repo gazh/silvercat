@@ -151,6 +151,9 @@ h1 span{
 .jump .to-top{
     top: -100px;
 }
+#preloader{
+    visibility: hidden;
+}
 
 
 
